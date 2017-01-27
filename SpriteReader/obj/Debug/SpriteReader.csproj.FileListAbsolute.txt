@@ -1,0 +1,10 @@
+D:\Projects\DarkOmenReborn\github\SpriteReader\SpriteReader\bin\Debug\SpriteReader.exe.config
+D:\Projects\DarkOmenReborn\github\SpriteReader\SpriteReader\bin\Debug\SpriteReader.exe
+D:\Projects\DarkOmenReborn\github\SpriteReader\SpriteReader\bin\Debug\SpriteReader.pdb
+D:\Projects\DarkOmenReborn\github\SpriteReader\SpriteReader\obj\Debug\SpriteReader.Properties.Resources.resources
+D:\Projects\DarkOmenReborn\github\SpriteReader\SpriteReader\obj\Debug\SpriteReader.csproj.GenerateResource.Cache
+D:\Projects\DarkOmenReborn\github\SpriteReader\SpriteReader\obj\Debug\SpriteReader.exe
+D:\Projects\DarkOmenReborn\github\SpriteReader\SpriteReader\obj\Debug\SpriteReader.pdb
+D:\Projects\DarkOmenReborn\github\SpriteReader\SpriteReader\obj\Debug\SpriteReader.MainForm.resources
+D:\Projects\DarkOmenReborn\github\SpriteReader\SpriteReader\obj\Debug\SpriteReader.ImageGridUserControl.resources
+D:\Projects\DarkOmenReborn\github\SpriteReader\SpriteReader\obj\Debug\SpriteReader.csprojResolveAssemblyReference.cache
