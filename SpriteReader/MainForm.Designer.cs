@@ -28,48 +28,49 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.button1 = new System.Windows.Forms.Button();
+			this._open_button = new System.Windows.Forms.Button();
 			this._sheet_pictureBox = new System.Windows.Forms.PictureBox();
-			this.panel1 = new System.Windows.Forms.Panel();
+			this._sheet_panel = new System.Windows.Forms.Panel();
 			this._play_button = new System.Windows.Forms.Button();
 			this._stop_button = new System.Windows.Forms.Button();
 			this._prevFrame_button = new System.Windows.Forms.Button();
 			this._nextFrame_button = new System.Windows.Forms.Button();
-			this.label1 = new System.Windows.Forms.Label();
-			this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+			this._playSpeed_label = new System.Windows.Forms.Label();
+			this._playSpeed_numericUpDown = new System.Windows.Forms.NumericUpDown();
 			this._horizontal_checkBox = new System.Windows.Forms.CheckBox();
 			this._vertical_checkBox = new System.Windows.Forms.CheckBox();
 			this._playDirection_label = new System.Windows.Forms.Label();
 			this._verticalRange_label = new System.Windows.Forms.Label();
-			this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-			this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
-			this.checkBox3 = new System.Windows.Forms.CheckBox();
-			this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
+			this._rowFrom_numericUpDown = new System.Windows.Forms.NumericUpDown();
+			this._rowTo_numericUpDown = new System.Windows.Forms.NumericUpDown();
+			this._drawGrid_checkBox = new System.Windows.Forms.CheckBox();
+			this._column_numericUpDown = new System.Windows.Forms.NumericUpDown();
 			this._column_label = new System.Windows.Forms.Label();
 			this._horizontalRow_numericUpDown = new System.Windows.Forms.NumericUpDown();
 			this._horizontalRow_label = new System.Windows.Forms.Label();
 			this._frame_pictureBox = new System.Windows.Forms.PictureBox();
 			this._frame_trackBar = new System.Windows.Forms.TrackBar();
+			this._export_button = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this._sheet_pictureBox)).BeginInit();
-			this.panel1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
+			this._sheet_panel.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this._playSpeed_numericUpDown)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this._rowFrom_numericUpDown)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this._rowTo_numericUpDown)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this._column_numericUpDown)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this._horizontalRow_numericUpDown)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this._frame_pictureBox)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this._frame_trackBar)).BeginInit();
 			this.SuspendLayout();
 			// 
-			// button1
+			// _open_button
 			// 
-			this.button1.Location = new System.Drawing.Point(12, 12);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(75, 23);
-			this.button1.TabIndex = 0;
-			this.button1.Text = "Open";
-			this.button1.UseVisualStyleBackColor = true;
-			this.button1.Click += new System.EventHandler(this.button1_Click);
+			this._open_button.Location = new System.Drawing.Point(12, 12);
+			this._open_button.Name = "_open_button";
+			this._open_button.Size = new System.Drawing.Size(75, 23);
+			this._open_button.TabIndex = 0;
+			this._open_button.Text = "Open";
+			this._open_button.UseVisualStyleBackColor = true;
+			this._open_button.Click += new System.EventHandler(this._open_button_Click);
 			// 
 			// _sheet_pictureBox
 			// 
@@ -80,18 +81,18 @@
 			this._sheet_pictureBox.TabIndex = 3;
 			this._sheet_pictureBox.TabStop = false;
 			// 
-			// panel1
+			// _sheet_panel
 			// 
-			this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+			this._sheet_panel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.panel1.AutoScroll = true;
-			this.panel1.BackColor = System.Drawing.Color.White;
-			this.panel1.Controls.Add(this._sheet_pictureBox);
-			this.panel1.Location = new System.Drawing.Point(12, 197);
-			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(744, 448);
-			this.panel1.TabIndex = 4;
+			this._sheet_panel.AutoScroll = true;
+			this._sheet_panel.BackColor = System.Drawing.Color.White;
+			this._sheet_panel.Controls.Add(this._sheet_pictureBox);
+			this._sheet_panel.Location = new System.Drawing.Point(12, 197);
+			this._sheet_panel.Name = "_sheet_panel";
+			this._sheet_panel.Size = new System.Drawing.Size(744, 448);
+			this._sheet_panel.TabIndex = 4;
 			// 
 			// _play_button
 			// 
@@ -136,32 +137,33 @@
 			this._nextFrame_button.UseVisualStyleBackColor = true;
 			this._nextFrame_button.Click += new System.EventHandler(this._nextFrame_button_Click);
 			// 
-			// label1
+			// _playSpeed_label
 			// 
-			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(188, 46);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(61, 13);
-			this.label1.TabIndex = 10;
-			this.label1.Text = "Play Speed";
+			this._playSpeed_label.AutoSize = true;
+			this._playSpeed_label.Location = new System.Drawing.Point(175, 46);
+			this._playSpeed_label.Name = "_playSpeed_label";
+			this._playSpeed_label.Size = new System.Drawing.Size(76, 13);
+			this._playSpeed_label.TabIndex = 10;
+			this._playSpeed_label.Text = "Frame Time (s)";
 			// 
-			// numericUpDown1
+			// _playSpeed_numericUpDown
 			// 
-			this.numericUpDown1.DecimalPlaces = 2;
-			this.numericUpDown1.Location = new System.Drawing.Point(255, 44);
-			this.numericUpDown1.Minimum = new decimal(new int[] {
+			this._playSpeed_numericUpDown.DecimalPlaces = 3;
+			this._playSpeed_numericUpDown.Location = new System.Drawing.Point(255, 44);
+			this._playSpeed_numericUpDown.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             131072});
-			this.numericUpDown1.Name = "numericUpDown1";
-			this.numericUpDown1.Size = new System.Drawing.Size(75, 20);
-			this.numericUpDown1.TabIndex = 11;
-			this.numericUpDown1.Value = new decimal(new int[] {
+			this._playSpeed_numericUpDown.Name = "_playSpeed_numericUpDown";
+			this._playSpeed_numericUpDown.Size = new System.Drawing.Size(75, 20);
+			this._playSpeed_numericUpDown.TabIndex = 11;
+			this._playSpeed_numericUpDown.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
+			this._playSpeed_numericUpDown.ValueChanged += new System.EventHandler(this._playSpeed_numericUpDown_ValueChanged);
 			// 
 			// _horizontal_checkBox
 			// 
@@ -179,7 +181,6 @@
 			// _vertical_checkBox
 			// 
 			this._vertical_checkBox.AutoSize = true;
-			this._vertical_checkBox.Enabled = false;
 			this._vertical_checkBox.Location = new System.Drawing.Point(174, 117);
 			this._vertical_checkBox.Name = "_vertical_checkBox";
 			this._vertical_checkBox.Size = new System.Drawing.Size(61, 17);
@@ -200,50 +201,53 @@
 			// _verticalRange_label
 			// 
 			this._verticalRange_label.AutoSize = true;
-			this._verticalRange_label.Location = new System.Drawing.Point(12, 147);
+			this._verticalRange_label.Location = new System.Drawing.Point(175, 173);
 			this._verticalRange_label.Name = "_verticalRange_label";
 			this._verticalRange_label.Size = new System.Drawing.Size(77, 13);
 			this._verticalRange_label.TabIndex = 18;
 			this._verticalRange_label.Text = "Vertical Range";
 			// 
-			// numericUpDown2
+			// _rowFrom_numericUpDown
 			// 
-			this.numericUpDown2.Location = new System.Drawing.Point(93, 145);
-			this.numericUpDown2.Name = "numericUpDown2";
-			this.numericUpDown2.Size = new System.Drawing.Size(35, 20);
-			this.numericUpDown2.TabIndex = 19;
+			this._rowFrom_numericUpDown.Location = new System.Drawing.Point(255, 171);
+			this._rowFrom_numericUpDown.Name = "_rowFrom_numericUpDown";
+			this._rowFrom_numericUpDown.Size = new System.Drawing.Size(35, 20);
+			this._rowFrom_numericUpDown.TabIndex = 19;
+			this._rowFrom_numericUpDown.ValueChanged += new System.EventHandler(this._rowFrom_numericUpDown_ValueChanged);
 			// 
-			// numericUpDown3
+			// _rowTo_numericUpDown
 			// 
-			this.numericUpDown3.Location = new System.Drawing.Point(134, 145);
-			this.numericUpDown3.Name = "numericUpDown3";
-			this.numericUpDown3.Size = new System.Drawing.Size(35, 20);
-			this.numericUpDown3.TabIndex = 20;
+			this._rowTo_numericUpDown.Location = new System.Drawing.Point(295, 171);
+			this._rowTo_numericUpDown.Name = "_rowTo_numericUpDown";
+			this._rowTo_numericUpDown.Size = new System.Drawing.Size(35, 20);
+			this._rowTo_numericUpDown.TabIndex = 20;
+			this._rowTo_numericUpDown.ValueChanged += new System.EventHandler(this._rowTo_numericUpDown_ValueChanged);
 			// 
-			// checkBox3
+			// _drawGrid_checkBox
 			// 
-			this.checkBox3.AutoSize = true;
-			this.checkBox3.Checked = true;
-			this.checkBox3.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.checkBox3.Location = new System.Drawing.Point(93, 16);
-			this.checkBox3.Name = "checkBox3";
-			this.checkBox3.Size = new System.Drawing.Size(73, 17);
-			this.checkBox3.TabIndex = 21;
-			this.checkBox3.Text = "Draw Grid";
-			this.checkBox3.UseVisualStyleBackColor = true;
-			this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
+			this._drawGrid_checkBox.AutoSize = true;
+			this._drawGrid_checkBox.Checked = true;
+			this._drawGrid_checkBox.CheckState = System.Windows.Forms.CheckState.Checked;
+			this._drawGrid_checkBox.Location = new System.Drawing.Point(178, 16);
+			this._drawGrid_checkBox.Name = "_drawGrid_checkBox";
+			this._drawGrid_checkBox.Size = new System.Drawing.Size(73, 17);
+			this._drawGrid_checkBox.TabIndex = 21;
+			this._drawGrid_checkBox.Text = "Draw Grid";
+			this._drawGrid_checkBox.UseVisualStyleBackColor = true;
+			this._drawGrid_checkBox.CheckedChanged += new System.EventHandler(this._drawGrid_checkBox_CheckedChanged);
 			// 
-			// numericUpDown4
+			// _column_numericUpDown
 			// 
-			this.numericUpDown4.Location = new System.Drawing.Point(255, 145);
-			this.numericUpDown4.Name = "numericUpDown4";
-			this.numericUpDown4.Size = new System.Drawing.Size(75, 20);
-			this.numericUpDown4.TabIndex = 22;
+			this._column_numericUpDown.Location = new System.Drawing.Point(93, 171);
+			this._column_numericUpDown.Name = "_column_numericUpDown";
+			this._column_numericUpDown.Size = new System.Drawing.Size(75, 20);
+			this._column_numericUpDown.TabIndex = 22;
+			this._column_numericUpDown.ValueChanged += new System.EventHandler(this._column_numericUpDown_ValueChanged);
 			// 
 			// _column_label
 			// 
 			this._column_label.AutoSize = true;
-			this._column_label.Location = new System.Drawing.Point(207, 147);
+			this._column_label.Location = new System.Drawing.Point(12, 173);
 			this._column_label.Name = "_column_label";
 			this._column_label.Size = new System.Drawing.Size(42, 13);
 			this._column_label.TabIndex = 23;
@@ -251,7 +255,7 @@
 			// 
 			// _horizontalRow_numericUpDown
 			// 
-			this._horizontalRow_numericUpDown.Location = new System.Drawing.Point(93, 171);
+			this._horizontalRow_numericUpDown.Location = new System.Drawing.Point(93, 145);
 			this._horizontalRow_numericUpDown.Name = "_horizontalRow_numericUpDown";
 			this._horizontalRow_numericUpDown.Size = new System.Drawing.Size(75, 20);
 			this._horizontalRow_numericUpDown.TabIndex = 25;
@@ -260,18 +264,18 @@
 			// _horizontalRow_label
 			// 
 			this._horizontalRow_label.AutoSize = true;
-			this._horizontalRow_label.Location = new System.Drawing.Point(12, 173);
+			this._horizontalRow_label.Location = new System.Drawing.Point(12, 147);
 			this._horizontalRow_label.Name = "_horizontalRow_label";
-			this._horizontalRow_label.Size = new System.Drawing.Size(79, 13);
+			this._horizontalRow_label.Size = new System.Drawing.Size(29, 13);
 			this._horizontalRow_label.TabIndex = 26;
-			this._horizontalRow_label.Text = "Horizontal Row";
+			this._horizontalRow_label.Text = "Row";
 			// 
 			// _frame_pictureBox
 			// 
 			this._frame_pictureBox.BackColor = System.Drawing.Color.White;
 			this._frame_pictureBox.Location = new System.Drawing.Point(336, 12);
 			this._frame_pictureBox.Name = "_frame_pictureBox";
-			this._frame_pictureBox.Size = new System.Drawing.Size(160, 160);
+			this._frame_pictureBox.Size = new System.Drawing.Size(179, 179);
 			this._frame_pictureBox.TabIndex = 27;
 			this._frame_pictureBox.TabStop = false;
 			// 
@@ -285,42 +289,53 @@
 			this._frame_trackBar.TabIndex = 28;
 			this._frame_trackBar.Scroll += new System.EventHandler(this._frame_trackBar_Scroll);
 			// 
+			// _export_button
+			// 
+			this._export_button.Location = new System.Drawing.Point(94, 12);
+			this._export_button.Name = "_export_button";
+			this._export_button.Size = new System.Drawing.Size(75, 23);
+			this._export_button.TabIndex = 29;
+			this._export_button.Text = "Export";
+			this._export_button.UseVisualStyleBackColor = true;
+			this._export_button.Click += new System.EventHandler(this._export_button_Click);
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoScroll = true;
 			this.ClientSize = new System.Drawing.Size(768, 657);
+			this.Controls.Add(this._export_button);
 			this.Controls.Add(this._frame_trackBar);
 			this.Controls.Add(this._frame_pictureBox);
 			this.Controls.Add(this._horizontalRow_label);
 			this.Controls.Add(this._horizontalRow_numericUpDown);
 			this.Controls.Add(this._column_label);
-			this.Controls.Add(this.numericUpDown4);
-			this.Controls.Add(this.checkBox3);
-			this.Controls.Add(this.numericUpDown3);
-			this.Controls.Add(this.numericUpDown2);
+			this.Controls.Add(this._column_numericUpDown);
+			this.Controls.Add(this._drawGrid_checkBox);
+			this.Controls.Add(this._rowTo_numericUpDown);
+			this.Controls.Add(this._rowFrom_numericUpDown);
 			this.Controls.Add(this._verticalRange_label);
 			this.Controls.Add(this._playDirection_label);
 			this.Controls.Add(this._vertical_checkBox);
 			this.Controls.Add(this._horizontal_checkBox);
-			this.Controls.Add(this.numericUpDown1);
-			this.Controls.Add(this.label1);
+			this.Controls.Add(this._playSpeed_numericUpDown);
+			this.Controls.Add(this._playSpeed_label);
 			this.Controls.Add(this._nextFrame_button);
 			this.Controls.Add(this._prevFrame_button);
 			this.Controls.Add(this._stop_button);
 			this.Controls.Add(this._play_button);
-			this.Controls.Add(this.panel1);
-			this.Controls.Add(this.button1);
+			this.Controls.Add(this._sheet_panel);
+			this.Controls.Add(this._open_button);
 			this.Name = "MainForm";
 			this.Text = "Sprite Reader";
 			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
 			((System.ComponentModel.ISupportInitialize)(this._sheet_pictureBox)).EndInit();
-			this.panel1.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
+			this._sheet_panel.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this._playSpeed_numericUpDown)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this._rowFrom_numericUpDown)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this._rowTo_numericUpDown)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this._column_numericUpDown)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this._horizontalRow_numericUpDown)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this._frame_pictureBox)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this._frame_trackBar)).EndInit();
@@ -331,28 +346,29 @@
 
 		#endregion
 
-		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.Button _open_button;
 		private System.Windows.Forms.PictureBox _sheet_pictureBox;
-		private System.Windows.Forms.Panel panel1;
+		private System.Windows.Forms.Panel _sheet_panel;
 		private System.Windows.Forms.Button _play_button;
 		private System.Windows.Forms.Button _stop_button;
 		private System.Windows.Forms.Button _prevFrame_button;
 		private System.Windows.Forms.Button _nextFrame_button;
-		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.NumericUpDown numericUpDown1;
+		private System.Windows.Forms.Label _playSpeed_label;
+		private System.Windows.Forms.NumericUpDown _playSpeed_numericUpDown;
 		private System.Windows.Forms.CheckBox _horizontal_checkBox;
 		private System.Windows.Forms.CheckBox _vertical_checkBox;
 		private System.Windows.Forms.Label _playDirection_label;
 		private System.Windows.Forms.Label _verticalRange_label;
-		private System.Windows.Forms.NumericUpDown numericUpDown2;
-		private System.Windows.Forms.NumericUpDown numericUpDown3;
-		private System.Windows.Forms.CheckBox checkBox3;
-		private System.Windows.Forms.NumericUpDown numericUpDown4;
+		private System.Windows.Forms.NumericUpDown _rowFrom_numericUpDown;
+		private System.Windows.Forms.NumericUpDown _rowTo_numericUpDown;
+		private System.Windows.Forms.CheckBox _drawGrid_checkBox;
+		private System.Windows.Forms.NumericUpDown _column_numericUpDown;
 		private System.Windows.Forms.Label _column_label;
 		private System.Windows.Forms.NumericUpDown _horizontalRow_numericUpDown;
 		private System.Windows.Forms.Label _horizontalRow_label;
 		private System.Windows.Forms.PictureBox _frame_pictureBox;
 		private System.Windows.Forms.TrackBar _frame_trackBar;
+		private System.Windows.Forms.Button _export_button;
 	}
 }
 
