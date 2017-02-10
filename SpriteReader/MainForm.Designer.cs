@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			this._open_button = new System.Windows.Forms.Button();
 			this._sheet_pictureBox = new System.Windows.Forms.PictureBox();
 			this._sheet_panel = new System.Windows.Forms.Panel();
@@ -51,6 +52,9 @@
 			this._frame_pictureBox = new System.Windows.Forms.PictureBox();
 			this._frame_trackBar = new System.Windows.Forms.TrackBar();
 			this._export_button = new System.Windows.Forms.Button();
+			this._applyFrameSize_button = new System.Windows.Forms.Button();
+			this._main_toolTip = new System.Windows.Forms.ToolTip(this.components);
+			this._frameSize_textBox = new System.Windows.Forms.TextBox();
 			((System.ComponentModel.ISupportInitialize)(this._sheet_pictureBox)).BeginInit();
 			this._sheet_panel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this._playSpeed_numericUpDown)).BeginInit();
@@ -69,6 +73,7 @@
 			this._open_button.Size = new System.Drawing.Size(75, 23);
 			this._open_button.TabIndex = 0;
 			this._open_button.Text = "Open";
+			this._main_toolTip.SetToolTip(this._open_button, "Open sprite file");
 			this._open_button.UseVisualStyleBackColor = true;
 			this._open_button.Click += new System.EventHandler(this._open_button_Click);
 			// 
@@ -102,6 +107,7 @@
 			this._play_button.Size = new System.Drawing.Size(35, 23);
 			this._play_button.TabIndex = 5;
 			this._play_button.Text = "►";
+			this._main_toolTip.SetToolTip(this._play_button, "Play animation");
 			this._play_button.UseVisualStyleBackColor = true;
 			this._play_button.Click += new System.EventHandler(this._play_button_Click);
 			// 
@@ -113,6 +119,7 @@
 			this._stop_button.Size = new System.Drawing.Size(35, 23);
 			this._stop_button.TabIndex = 6;
 			this._stop_button.Text = "■";
+			this._main_toolTip.SetToolTip(this._stop_button, "Stop playing animation");
 			this._stop_button.UseVisualStyleBackColor = true;
 			this._stop_button.Click += new System.EventHandler(this._stop_button_Click);
 			// 
@@ -124,6 +131,7 @@
 			this._prevFrame_button.Size = new System.Drawing.Size(35, 23);
 			this._prevFrame_button.TabIndex = 7;
 			this._prevFrame_button.Text = "←";
+			this._main_toolTip.SetToolTip(this._prevFrame_button, "Previous frame");
 			this._prevFrame_button.UseVisualStyleBackColor = true;
 			this._prevFrame_button.Click += new System.EventHandler(this._prevFrame_button_Click);
 			// 
@@ -134,6 +142,7 @@
 			this._nextFrame_button.Size = new System.Drawing.Size(35, 23);
 			this._nextFrame_button.TabIndex = 8;
 			this._nextFrame_button.Text = "→";
+			this._main_toolTip.SetToolTip(this._nextFrame_button, "Next frame");
 			this._nextFrame_button.UseVisualStyleBackColor = true;
 			this._nextFrame_button.Click += new System.EventHandler(this._nextFrame_button_Click);
 			// 
@@ -228,7 +237,7 @@
 			this._drawGrid_checkBox.AutoSize = true;
 			this._drawGrid_checkBox.Checked = true;
 			this._drawGrid_checkBox.CheckState = System.Windows.Forms.CheckState.Checked;
-			this._drawGrid_checkBox.Location = new System.Drawing.Point(178, 16);
+			this._drawGrid_checkBox.Location = new System.Drawing.Point(255, 16);
 			this._drawGrid_checkBox.Name = "_drawGrid_checkBox";
 			this._drawGrid_checkBox.Size = new System.Drawing.Size(73, 17);
 			this._drawGrid_checkBox.TabIndex = 21;
@@ -296,8 +305,29 @@
 			this._export_button.Size = new System.Drawing.Size(75, 23);
 			this._export_button.TabIndex = 29;
 			this._export_button.Text = "Export";
+			this._main_toolTip.SetToolTip(this._export_button, "Export sprite sheet to image");
 			this._export_button.UseVisualStyleBackColor = true;
 			this._export_button.Click += new System.EventHandler(this._export_button_Click);
+			// 
+			// _applyFrameSize_button
+			// 
+			this._applyFrameSize_button.Location = new System.Drawing.Point(215, 12);
+			this._applyFrameSize_button.Name = "_applyFrameSize_button";
+			this._applyFrameSize_button.Size = new System.Drawing.Size(37, 23);
+			this._applyFrameSize_button.TabIndex = 32;
+			this._applyFrameSize_button.Text = "Size";
+			this._main_toolTip.SetToolTip(this._applyFrameSize_button, "Apply frame size");
+			this._applyFrameSize_button.UseVisualStyleBackColor = true;
+			this._applyFrameSize_button.Click += new System.EventHandler(this._applyFrameSize_button_Click);
+			// 
+			// _frameSize_textBox
+			// 
+			this._frameSize_textBox.Location = new System.Drawing.Point(174, 14);
+			this._frameSize_textBox.Name = "_frameSize_textBox";
+			this._frameSize_textBox.Size = new System.Drawing.Size(35, 20);
+			this._frameSize_textBox.TabIndex = 30;
+			this._frameSize_textBox.TextChanged += new System.EventHandler(this._frameSize_textBox_TextChanged);
+			this._frameSize_textBox.Validating += new System.ComponentModel.CancelEventHandler(this._frameSize_textBox_Validating);
 			// 
 			// MainForm
 			// 
@@ -305,6 +335,8 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoScroll = true;
 			this.ClientSize = new System.Drawing.Size(768, 657);
+			this.Controls.Add(this._applyFrameSize_button);
+			this.Controls.Add(this._frameSize_textBox);
 			this.Controls.Add(this._export_button);
 			this.Controls.Add(this._frame_trackBar);
 			this.Controls.Add(this._frame_pictureBox);
@@ -369,6 +401,9 @@
 		private System.Windows.Forms.PictureBox _frame_pictureBox;
 		private System.Windows.Forms.TrackBar _frame_trackBar;
 		private System.Windows.Forms.Button _export_button;
+		private System.Windows.Forms.Button _applyFrameSize_button;
+		private System.Windows.Forms.ToolTip _main_toolTip;
+		private System.Windows.Forms.TextBox _frameSize_textBox;
 	}
 }
 

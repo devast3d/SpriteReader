@@ -92,6 +92,14 @@ namespace SpriteReader
 			ApplyDirection();
 		}	
 
+		private void ApplySize()
+		{
+			ResetFrame();
+
+			RedrawSheet();
+			DrawFrame();
+		}
+
 		private void ApplyDirection()
 		{
 			ResetFrame();
@@ -277,6 +285,8 @@ namespace SpriteReader
 
 		private void UpdateUI()
 		{
+			_frameSize_textBox.Text = _frameSize.ToString();
+
 			SetupTrackBar();
 			int maxRowsMinOne = _maxRows - 1;
 
@@ -439,6 +449,41 @@ namespace SpriteReader
 				ApplyDirection();
 				DrawFrame();
 			}
+		}
+
+		private void _frameSize_textBox_Validating(object sender, CancelEventArgs e)
+		{
+			int val;
+			if (!int.TryParse(_frameSize_textBox.Text, out val))
+			{
+				ShowError("Frame size should be number");
+				e.Cancel = true;
+				return;
+			}
+			if (val < 1)
+			{
+				ShowError("Frame size should be more or equal 1");
+				e.Cancel = true;
+				return;
+			}
+		}
+
+		private void _frameSize_textBox_TextChanged(object sender, EventArgs e)
+		{
+			int val;
+			if (int.TryParse(_frameSize_textBox.Text, out val))
+			{
+				_frameSize = val;
+			}
+			else
+			{
+				ShowError("Frame size should be number");
+			}
+		}
+
+		private void _applyFrameSize_button_Click(object sender, EventArgs e)
+		{
+			ApplySize();
 		}
 	}
 }
