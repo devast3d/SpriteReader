@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DarkOmen;
 using System.IO;
+using System.Drawing.Imaging;
+using System.Runtime.InteropServices;
 
 namespace SpriteReader
 {
@@ -176,6 +178,50 @@ namespace SpriteReader
 			}
 		}
 
+		private static byte[] ReadImage(Bitmap bitmap)
+		{
+			byte[] bytes = new byte[bitmap.Width * bitmap.Height * 4];
+			BitmapData data = bitmap.LockBits(new Rectangle(0, 0, bitmap.Width, bitmap.Height), ImageLockMode.ReadOnly, PixelFormat.Format32bppArgb);
+			Marshal.Copy(data.Scan0, bytes, 0, bytes.Length);
+			bitmap.UnlockBits(data);
+			return bytes;
+		}
+
+		private Bitmap WriteImage(Bitmap image, byte[] bytes)
+		{
+			Bitmap outputImage = new Bitmap(image.Width, image.Height, PixelFormat.Format32bppArgb);
+			BitmapData data = outputImage.LockBits(new Rectangle(0, 0, image.Width, image.Height), ImageLockMode.WriteOnly, PixelFormat.Format32bppArgb);
+			Marshal.Copy(bytes, 0, data.Scan0, image.Width * image.Height * 4);
+			outputImage.UnlockBits(data);
+			return outputImage;
+		}
+
+		private void ReplaceShadow(ref Bitmap image)
+		{
+			byte[] bytes = ReadImage(image);
+			for (int i = 0, len = image.Width * image.Height * 4; i < len; i += 4)
+			{
+				int indexR = i + 2;
+				int indexG = i + 1;
+				int indexB = i + 0;
+				int indexA = i + 3;
+				if (bytes[indexR] == 0 && bytes[indexG] == 255 && bytes[indexB] == 255)
+				{
+					bytes[indexA] = 128;
+					bytes[indexR] = 0;
+					bytes[indexG] = 0;
+					bytes[indexB] = 0;
+				}
+				//if (bytes[indexA] == 255)
+				//{
+				//	bytes[indexR] = 255;
+				//	bytes[indexG] = 0;
+				//	bytes[indexB] = 0;
+				//}
+			}
+			image = WriteImage(image, bytes);
+		}
+
 		private void ComposeImage(bool export)
 		{
 			int finalSizeX = RowSize;
@@ -184,16 +230,22 @@ namespace SpriteReader
 			Bitmap finalImage = new Bitmap(finalSizeX * _frameSize, finalSizeY * _frameSize);
 			Graphics g = Graphics.FromImage(finalImage);
 
+			int offset = _pixOffset_checkBox.Checked ? -1 : 0;
+
 			for (int i = 0; i < _frames.Count; ++i)
 			{
 				var frame = _frames[i];
 				Bitmap image = frame.ToBitmap();
+				if (_replaceShadow_checkBox.Checked)
+				{
+					ReplaceShadow(ref image);
+				}
 
 				int x = (i % finalSizeX) * _frameSize;
 				int y = (i / finalSizeX) * _frameSize;
 
 				Position p = frame.TopLeftPosition();
-				g.DrawImage(image, x + p.X + _frameSize / 2, y + p.Y + _frameSize);
+				g.DrawImage(image, x + p.X + _frameSize / 2, y + p.Y + _frameSize + offset);
 			}
 
 			if (!export)
@@ -201,14 +253,17 @@ namespace SpriteReader
 				if (_drawGrid_checkBox.Checked)
 				{
 					Pen p = new Pen(Color.Black);
+					Pen pg = new Pen(Color.FromArgb(30, Color.Black));
 
 					for (int i = 0; i <= finalImage.Width; i += _frameSize)
 					{
+						g.DrawLine(pg, i + _frameSize / 2, 0, i + _frameSize / 2, finalImage.Height);
 						g.DrawLine(p, i, 0, i, finalImage.Height);
 					}
 
 					for (int j = 0; j <= finalImage.Height; j += _frameSize)
 					{
+						g.DrawLine(pg, 0, j + _frameSize / 2, finalImage.Width, j + _frameSize / 2);
 						g.DrawLine(p, 0, j, finalImage.Width, j);
 					}
 				}
@@ -338,6 +393,16 @@ namespace SpriteReader
 		}
 
 		private void _drawGrid_checkBox_CheckedChanged(object sender, EventArgs e)
+		{
+			RedrawSheet();
+		}
+
+		private void _replaceShadow_checkBox_CheckedChanged(object sender, EventArgs e)
+		{
+			RedrawSheet();
+		}
+
+		private void _pixOffset_checkBox_CheckedChanged(object sender, EventArgs e)
 		{
 			RedrawSheet();
 		}
@@ -485,5 +550,6 @@ namespace SpriteReader
 		{
 			ApplySize();
 		}
+
 	}
 }

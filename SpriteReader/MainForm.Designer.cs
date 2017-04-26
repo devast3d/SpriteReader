@@ -55,6 +55,8 @@
 			this._applyFrameSize_button = new System.Windows.Forms.Button();
 			this._main_toolTip = new System.Windows.Forms.ToolTip(this.components);
 			this._frameSize_textBox = new System.Windows.Forms.TextBox();
+			this._replaceShadow_checkBox = new System.Windows.Forms.CheckBox();
+			this._pixOffset_checkBox = new System.Windows.Forms.CheckBox();
 			((System.ComponentModel.ISupportInitialize)(this._sheet_pictureBox)).BeginInit();
 			this._sheet_panel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this._playSpeed_numericUpDown)).BeginInit();
@@ -237,7 +239,7 @@
 			this._drawGrid_checkBox.AutoSize = true;
 			this._drawGrid_checkBox.Checked = true;
 			this._drawGrid_checkBox.CheckState = System.Windows.Forms.CheckState.Checked;
-			this._drawGrid_checkBox.Location = new System.Drawing.Point(255, 16);
+			this._drawGrid_checkBox.Location = new System.Drawing.Point(336, 16);
 			this._drawGrid_checkBox.Name = "_drawGrid_checkBox";
 			this._drawGrid_checkBox.Size = new System.Drawing.Size(73, 17);
 			this._drawGrid_checkBox.TabIndex = 21;
@@ -282,9 +284,9 @@
 			// _frame_pictureBox
 			// 
 			this._frame_pictureBox.BackColor = System.Drawing.Color.White;
-			this._frame_pictureBox.Location = new System.Drawing.Point(336, 12);
+			this._frame_pictureBox.Location = new System.Drawing.Point(336, 41);
 			this._frame_pictureBox.Name = "_frame_pictureBox";
-			this._frame_pictureBox.Size = new System.Drawing.Size(179, 179);
+			this._frame_pictureBox.Size = new System.Drawing.Size(179, 150);
 			this._frame_pictureBox.TabIndex = 27;
 			this._frame_pictureBox.TabStop = false;
 			// 
@@ -311,11 +313,11 @@
 			// 
 			// _applyFrameSize_button
 			// 
-			this._applyFrameSize_button.Location = new System.Drawing.Point(215, 12);
+			this._applyFrameSize_button.Location = new System.Drawing.Point(255, 12);
 			this._applyFrameSize_button.Name = "_applyFrameSize_button";
-			this._applyFrameSize_button.Size = new System.Drawing.Size(37, 23);
+			this._applyFrameSize_button.Size = new System.Drawing.Size(75, 23);
 			this._applyFrameSize_button.TabIndex = 32;
-			this._applyFrameSize_button.Text = "Size";
+			this._applyFrameSize_button.Text = "Apply Size";
 			this._main_toolTip.SetToolTip(this._applyFrameSize_button, "Apply frame size");
 			this._applyFrameSize_button.UseVisualStyleBackColor = true;
 			this._applyFrameSize_button.Click += new System.EventHandler(this._applyFrameSize_button_Click);
@@ -324,10 +326,36 @@
 			// 
 			this._frameSize_textBox.Location = new System.Drawing.Point(174, 14);
 			this._frameSize_textBox.Name = "_frameSize_textBox";
-			this._frameSize_textBox.Size = new System.Drawing.Size(35, 20);
+			this._frameSize_textBox.Size = new System.Drawing.Size(75, 20);
 			this._frameSize_textBox.TabIndex = 30;
 			this._frameSize_textBox.TextChanged += new System.EventHandler(this._frameSize_textBox_TextChanged);
 			this._frameSize_textBox.Validating += new System.ComponentModel.CancelEventHandler(this._frameSize_textBox_Validating);
+			// 
+			// _replaceShadow_checkBox
+			// 
+			this._replaceShadow_checkBox.AutoSize = true;
+			this._replaceShadow_checkBox.Checked = true;
+			this._replaceShadow_checkBox.CheckState = System.Windows.Forms.CheckState.Checked;
+			this._replaceShadow_checkBox.Location = new System.Drawing.Point(407, 16);
+			this._replaceShadow_checkBox.Name = "_replaceShadow_checkBox";
+			this._replaceShadow_checkBox.Size = new System.Drawing.Size(108, 17);
+			this._replaceShadow_checkBox.TabIndex = 33;
+			this._replaceShadow_checkBox.Text = "Replace Shadow";
+			this._replaceShadow_checkBox.UseVisualStyleBackColor = true;
+			this._replaceShadow_checkBox.CheckedChanged += new System.EventHandler(this._replaceShadow_checkBox_CheckedChanged);
+			// 
+			// _pixOffset_checkBox
+			// 
+			this._pixOffset_checkBox.AutoSize = true;
+			this._pixOffset_checkBox.Checked = true;
+			this._pixOffset_checkBox.CheckState = System.Windows.Forms.CheckState.Checked;
+			this._pixOffset_checkBox.Location = new System.Drawing.Point(521, 16);
+			this._pixOffset_checkBox.Name = "_pixOffset_checkBox";
+			this._pixOffset_checkBox.Size = new System.Drawing.Size(77, 17);
+			this._pixOffset_checkBox.TabIndex = 34;
+			this._pixOffset_checkBox.Text = "1 pix offset";
+			this._pixOffset_checkBox.UseVisualStyleBackColor = true;
+			this._pixOffset_checkBox.CheckedChanged += new System.EventHandler(this._pixOffset_checkBox_CheckedChanged);
 			// 
 			// MainForm
 			// 
@@ -335,6 +363,8 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoScroll = true;
 			this.ClientSize = new System.Drawing.Size(768, 657);
+			this.Controls.Add(this._pixOffset_checkBox);
+			this.Controls.Add(this._replaceShadow_checkBox);
 			this.Controls.Add(this._applyFrameSize_button);
 			this.Controls.Add(this._frameSize_textBox);
 			this.Controls.Add(this._export_button);
@@ -404,6 +434,8 @@
 		private System.Windows.Forms.Button _applyFrameSize_button;
 		private System.Windows.Forms.ToolTip _main_toolTip;
 		private System.Windows.Forms.TextBox _frameSize_textBox;
+		private System.Windows.Forms.CheckBox _replaceShadow_checkBox;
+		private System.Windows.Forms.CheckBox _pixOffset_checkBox;
 	}
 }
 
