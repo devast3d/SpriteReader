@@ -56,7 +56,7 @@
 			this._main_toolTip = new System.Windows.Forms.ToolTip(this.components);
 			this._frameSize_textBox = new System.Windows.Forms.TextBox();
 			this._replaceShadow_checkBox = new System.Windows.Forms.CheckBox();
-			this._pixOffset_checkBox = new System.Windows.Forms.CheckBox();
+			this._offset_numericUpDown = new System.Windows.Forms.NumericUpDown();
 			((System.ComponentModel.ISupportInitialize)(this._sheet_pictureBox)).BeginInit();
 			this._sheet_panel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this._playSpeed_numericUpDown)).BeginInit();
@@ -66,6 +66,7 @@
 			((System.ComponentModel.ISupportInitialize)(this._horizontalRow_numericUpDown)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this._frame_pictureBox)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this._frame_trackBar)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this._offset_numericUpDown)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// _open_button
@@ -344,18 +345,23 @@
 			this._replaceShadow_checkBox.UseVisualStyleBackColor = true;
 			this._replaceShadow_checkBox.CheckedChanged += new System.EventHandler(this._replaceShadow_checkBox_CheckedChanged);
 			// 
-			// _pixOffset_checkBox
+			// _offset_numericUpDown
 			// 
-			this._pixOffset_checkBox.AutoSize = true;
-			this._pixOffset_checkBox.Checked = true;
-			this._pixOffset_checkBox.CheckState = System.Windows.Forms.CheckState.Checked;
-			this._pixOffset_checkBox.Location = new System.Drawing.Point(521, 16);
-			this._pixOffset_checkBox.Name = "_pixOffset_checkBox";
-			this._pixOffset_checkBox.Size = new System.Drawing.Size(77, 17);
-			this._pixOffset_checkBox.TabIndex = 34;
-			this._pixOffset_checkBox.Text = "1 pix offset";
-			this._pixOffset_checkBox.UseVisualStyleBackColor = true;
-			this._pixOffset_checkBox.CheckedChanged += new System.EventHandler(this._pixOffset_checkBox_CheckedChanged);
+			this._offset_numericUpDown.Location = new System.Drawing.Point(521, 14);
+			this._offset_numericUpDown.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+			this._offset_numericUpDown.Minimum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            -2147483648});
+			this._offset_numericUpDown.Name = "_offset_numericUpDown";
+			this._offset_numericUpDown.Size = new System.Drawing.Size(75, 20);
+			this._offset_numericUpDown.TabIndex = 25;
+			this._offset_numericUpDown.ValueChanged += new System.EventHandler(this._offset_numericUpDown_ValueChanged);
 			// 
 			// MainForm
 			// 
@@ -363,7 +369,6 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoScroll = true;
 			this.ClientSize = new System.Drawing.Size(768, 657);
-			this.Controls.Add(this._pixOffset_checkBox);
 			this.Controls.Add(this._replaceShadow_checkBox);
 			this.Controls.Add(this._applyFrameSize_button);
 			this.Controls.Add(this._frameSize_textBox);
@@ -371,6 +376,7 @@
 			this.Controls.Add(this._frame_trackBar);
 			this.Controls.Add(this._frame_pictureBox);
 			this.Controls.Add(this._horizontalRow_label);
+			this.Controls.Add(this._offset_numericUpDown);
 			this.Controls.Add(this._horizontalRow_numericUpDown);
 			this.Controls.Add(this._column_label);
 			this.Controls.Add(this._column_numericUpDown);
@@ -401,6 +407,7 @@
 			((System.ComponentModel.ISupportInitialize)(this._horizontalRow_numericUpDown)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this._frame_pictureBox)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this._frame_trackBar)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this._offset_numericUpDown)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -435,7 +442,7 @@
 		private System.Windows.Forms.ToolTip _main_toolTip;
 		private System.Windows.Forms.TextBox _frameSize_textBox;
 		private System.Windows.Forms.CheckBox _replaceShadow_checkBox;
-		private System.Windows.Forms.CheckBox _pixOffset_checkBox;
+		private System.Windows.Forms.NumericUpDown _offset_numericUpDown;
 	}
 }
 

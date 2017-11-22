@@ -230,7 +230,7 @@ namespace SpriteReader
 			Bitmap finalImage = new Bitmap(finalSizeX * _frameSize, finalSizeY * _frameSize);
 			Graphics g = Graphics.FromImage(finalImage);
 
-			int offset = _pixOffset_checkBox.Checked ? -1 : 0;
+			int offset = (int)_offset_numericUpDown.Value;
 
 			for (int i = 0; i < _frames.Count; ++i)
 			{
@@ -402,7 +402,7 @@ namespace SpriteReader
 			RedrawSheet();
 		}
 
-		private void _pixOffset_checkBox_CheckedChanged(object sender, EventArgs e)
+		private void _offset_numericUpDown_ValueChanged(object sender, EventArgs e)
 		{
 			RedrawSheet();
 		}
@@ -550,6 +550,5 @@ namespace SpriteReader
 		{
 			ApplySize();
 		}
-
 	}
 }
